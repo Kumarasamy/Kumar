@@ -1,0 +1,11 @@
+#include<iostream>
+#include "GetReal.h"
+
+using namespace std;
+
+int main() {
+
+	float fl = GetReal();
+	cout<<fl<endl;
+	return 0;
+}
