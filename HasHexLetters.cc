@@ -1,3 +1,5 @@
+/* Find the integer hex notation having letters or not */ 
+
 #include<iostream>
 #include<sstream>
 #include<string>
@@ -9,19 +11,11 @@ bool HasHexLetters(int x) {
 	char ch;
 	stringstream sstring;
 	sstring<<hex<<x;
-	sstring>>s;
-	cout<<s<<endl;	
-        if(sstring>>ch)
-	{
-		return true;
-
-	}	
-		
-	else  return false;
+	return sstring.str().find_first_of("abcdefABCDEF") != string::npos;
 }
 
 int main(){
 int number;
-	cout<<boolalpha<<HasHexLetters(200)<<endl;
+	cout<<boolalpha<<HasHexLetters(100)<<endl;
 	return 0;
 }
