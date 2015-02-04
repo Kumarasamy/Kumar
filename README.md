@@ -1,4 +1,4 @@
 Kumar
 =====
 
-this is my first project
+Practicing the C++ programming concepts

@@ -120,7 +120,6 @@ void Pause() {
 	clock_t startTime  = clock();
 	
 	while(static_cast<double>(clock() - startTime /CLOCKS_PER_SEC<kWaitTime));
-	sleep(20);
 
 }
 
