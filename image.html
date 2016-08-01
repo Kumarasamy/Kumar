@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="language" content="english">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+
+<title>random background-image rotation</title>
+<style type="text/css">
+body {
+	background-position: center center;
+	background-repeat:  no-repeat;
+	background-attachment: fixed;
+	background-size:cover;
+}
+</style>
+<script type="text/javascript">
+
+var num;
+var temp=0;
+var speed=2000; /* this is set for 5 seconds, edit value to suit requirements */
+var preloads=[];
+
+/* add any number of images here */
+
+preload(
+'file:///C:/Users/KPL6KOR/Desktop/Lighthouse.jpg',
+'file:///C:/Users/Public/Pictures/Chrysanthemum.jpg',
+'file:///C:/Users/Public/Pictures/Desert.jpg',
+'file:///C:/Users/Public/Pictures/Hydrangeas.jpg',
+'file:///C:/Users/Public/Pictures/Jellyfish.jpg',
+'file:///C:/Users/Public/Pictures/Koala.jpg'
+);
+
+function preload(){
+
+for(var c=0;c<arguments.length;c++) {
+preloads[preloads.length]=new Image();
+preloads[preloads.length-1].src=arguments[c];
+}
+}
+
+function rotateImages() {
+num=Math.floor(Math.random()*preloads.length);
+if(num==temp){
+rotateImages();
+}
+else {
+document.body.style.backgroundImage='url('+preloads[num].src+')';
+temp=num;
+
+setTimeout(function(){rotateImages()},speed);
+}
+}
+
+if(window.addEventListener){
+window.addEventListener('load',rotateImages,false);
+}
+else {
+if(window.attachEvent){
+window.attachEvent('onload',rotateImages);
+}
+}
+</script>
+
+</head>
+<body>
+
+<div>
+</div>
+
+</body>
+</html>
